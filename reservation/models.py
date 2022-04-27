@@ -2,12 +2,11 @@ from django.db import models
 
 import uuid
 
-class reservation():
-    def __init__(self, date, parties, contact):
-        self.id = uuid.uuid4()
-        self.date = date
-        self.parties = parties
-        self.contact = contact
+class reservation(models.Model):
+    id = models.UUIDField()
+    date = models.DateTimeField()
+    parties = models.IntegerField()
+    contact = models.ForeignKey(contact, on_delete=models.CASCADE)
 
 
 class contact():
