@@ -1,21 +1,19 @@
 from django.db import models
 
-import uuid
+
+class contact(models.Model):
+    id = models.UUIDField(primary_key=True)
+    first_name = models.CharField(max_length=200)
+    surname = models.CharField(max_length=200)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=11)
+
 
 class reservation(models.Model):
-    id = models.UUIDField()
+    id = models.UUIDField(primary_key=True)
     date = models.DateTimeField()
     parties = models.IntegerField()
     contact = models.ForeignKey(contact, on_delete=models.CASCADE)
-
-
-class contact():
-    def __init__(self, first_name, surname, email, phone_number):
-        self.id = uuid.uuid4()
-        self.first_name = first_name
-        self.surname = surname
-        self.email = email
-        self.phone_number = phone_number
 
 
 # Create your models here.
