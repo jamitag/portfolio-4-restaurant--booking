@@ -3,16 +3,25 @@
 {% block content %}
 
 <h4>Reservation</h4>
+
+{% for reservation in reservations %}
+{% ifchanged %}
+
 <table>
+    {% endifchanged %}
+
     <th>Date</th>
     <th>Time</th>
     <th>No. of parties</th>
     <tr>
-        <td>1/1/2020</td>
+        <td>{{reservation.date}}</td>
         <td>0000</td>
-        <td>1000000</td>
+        <td>{{reservation.parties}}</td>
     </tr>
+    {% ifchanged %}
 </table>
+    {% endifchanged %}
+    {% endfor %}
 
 {% endblock content %}
 
