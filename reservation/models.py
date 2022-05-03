@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from django.contrib.auth.models import User
 
 
 class contact(models.Model):
@@ -8,6 +9,7 @@ class contact(models.Model):
     surname = models.CharField(max_length=200)
     email = models.EmailField()
     phone_number = models.CharField(max_length=11)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class reservation(models.Model):
