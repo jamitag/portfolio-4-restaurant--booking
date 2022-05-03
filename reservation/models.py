@@ -16,5 +16,3 @@ class reservation(models.Model):
     parties = models.IntegerField()
     contact = models.ForeignKey(contact, on_delete=models.CASCADE)
 
-
-# Create your models here.

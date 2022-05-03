@@ -4,24 +4,25 @@
 
 <h4>Reservation</h4>
 
-{% for reservation in reservations %}
-{% ifchanged %}
+<button onclick="add_reservation()">
+    add
+</button>
 
 <table>
-    {% endifchanged %}
 
     <th>Date</th>
-    <th>Time</th>
     <th>No. of parties</th>
+
+    {% for reservation in reservations %}
+
     <tr>
         <td>{{reservation.date}}</td>
-        <td>0000</td>
         <td>{{reservation.parties}}</td>
     </tr>
-    {% ifchanged %}
-</table>
-    {% endifchanged %}
+
     {% endfor %}
+
+</table>
 
 {% endblock content %}
 
