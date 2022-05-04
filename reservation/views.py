@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from .models import reservation, contact
 import datetime
+from django.contrib.auth.models import User
 
 def index(request):
-    reservations = reservation.objects.all()
-    c = contact.objects.all()
+    # request.user = User.objects.all()[0]
+    # currentuser = User.objects.all()[0]
+    c = contact.objects.get(first_name='Harry')
+    reservations = reservation.objects.filter(contact=c)
     context = {
         'reservations': reservations,
-        'add_reservation': add_reservation(c[0], 0)
+        'add_reservation': add_reservation(c, 0)
     }
 
     return render(request, 'index.html', context=context)
