@@ -3,6 +3,14 @@ table, th, td {
 }
 
 .login-button {
-    margin-left: auto;
+    margin-right: auto;
     width: 100px;
+}
+
+#hero-img {
+    height: 600px;
+    width: 100%;
+    background: url('../media/image.jpg') no-repeat center center;
+    filter: grayscale(90%);
+    display: flex;
 }

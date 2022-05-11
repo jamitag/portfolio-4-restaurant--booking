@@ -19,6 +19,11 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
+def login(request):
+    context = {}
+    return render(request, 'login.html', context=context)
+
+
 """
 Creates a new reservation record
 """
