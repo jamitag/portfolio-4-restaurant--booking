@@ -21,6 +21,6 @@ import reservation.views as views
 urlpatterns = [
     path('index/', views.index),
     path('admin/', admin.site.urls),
-    path('login/', views.login),
+    path('login/', views.login_page),
     path('accounts/', include('django.contrib.auth.urls'))
 ]

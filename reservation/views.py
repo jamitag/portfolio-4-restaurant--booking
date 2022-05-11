@@ -1,7 +1,8 @@
 from django.shortcuts import render
+# from django.contrib.auth.models import User
+# from django.contrib.auth import authenticate, login
 from .models import reservation, contact
 import datetime
-from django.contrib.auth.models import User
 
 """
 Provides data and functionality for the index screen
@@ -19,8 +20,10 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
-def login(request):
-    context = {}
+def login_page(request):
+    context = {
+        'sign_in': sign_in()
+    }
     return render(request, 'login.html', context=context)
 
 
@@ -32,3 +35,13 @@ def add_reservation(contact, parties):
     reservation.objects.create(contact=contact, date=datetime.datetime.now(), parties=parties)
 
 
+# def sign_in(request):
+#     credentials = request.POST
+#     username = credentials.get('username')
+#     password = credentials.get('password')
+#     user = authenticate(request, username=username, password=password)
+#     if user is not None:
+#         login(request, user)
+
+def sign_in():
+    print('')
