@@ -22,5 +22,7 @@ urlpatterns = [
     path('index/', views.index),
     path('admin/', admin.site.urls),
     path('login/', views.login_page),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('login/login/', views.sign_in),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
 ]

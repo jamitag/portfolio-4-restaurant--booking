@@ -1,16 +1,18 @@
 from django.shortcuts import render
-# from django.contrib.auth.models import User
-# from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from .models import reservation, contact
 import datetime
+
+user = {}
 
 """
 Provides data and functionality for the index screen
 """
 
 def index(request):
-    # request.user = User.objects.all()[0]
-    # currentuser = User.objects.all()[0]
+    request.user = User.objects.all()[0]
+    currentuser = User.objects.all()[0]
     c = contact.objects.get(first_name='Harry')
     reservations = reservation.objects.filter(contact=c)
     context = {
@@ -22,8 +24,12 @@ def index(request):
 
 def login_page(request):
     context = {
-        'sign_in': sign_in()
+        # 'sign_in': sign_in(request),
+        'user': user
     }
+
+    user['username'] = 'random string'
+
     return render(request, 'login.html', context=context)
 
 
@@ -35,13 +41,14 @@ def add_reservation(contact, parties):
     reservation.objects.create(contact=contact, date=datetime.datetime.now(), parties=parties)
 
 
-# def sign_in(request):
-#     credentials = request.POST
-#     username = credentials.get('username')
-#     password = credentials.get('password')
-#     user = authenticate(request, username=username, password=password)
-#     if user is not None:
-#         login(request, user)
+def sign_in(request):
+    credentials = request.POST
+    username = credentials.get('username')
+    password = credentials.get('password')
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+    return render(request, '')
 
-def sign_in():
-    print('')
+# def sign_in():
+#     print('')

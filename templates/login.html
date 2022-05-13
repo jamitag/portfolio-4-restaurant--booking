@@ -2,8 +2,31 @@
 
 {% block content %}
 
-<button onclick="sign_in()">
+<button onclick="signIn()">
     
 </button>
 
+<span>
+   user : {{user.username}}
+</span>
+
+<script>
+
+    var headers = new Headers({
+        'Content-Type': 'x-www-form-urlencoded',
+        'X-CSRF-TOKEN': `${{csrf_token}}`,
+        'X-Requested-With': 'XMLHttpRequest'
+    })
+
+    function signIn() {
+        fetch('login/', {
+            method: 'POST',
+            headers: headers,
+            body: '',
+            credentials: 'same-origin'
+        })
+    }
+</script>
+
 {% endblock content %}
+

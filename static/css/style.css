@@ -10,7 +10,7 @@ table, th, td {
 #hero-img {
     height: 600px;
     width: 100%;
-    background: url('../media/image.jpg') no-repeat center center;
+    background: url('../media/restaurant-background.png') no-repeat center center;
     filter: grayscale(90%);
     display: flex;
 }
