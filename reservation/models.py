@@ -32,4 +32,3 @@ class reservation(models.Model):
     date = models.DateTimeField()
     parties = models.IntegerField()
     contact = models.ForeignKey(contact, on_delete=models.CASCADE)
-

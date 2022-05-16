@@ -11,10 +11,14 @@ Provides data and functionality for the index screen
 """
 
 def index(request):
-    request.user = User.objects.all()[0]
-    currentuser = User.objects.all()[0]
-    c = contact.objects.get(first_name='Harry')
-    reservations = reservation.objects.filter(contact=c)
+    # request.user = User.objects.all()[0]
+    reservations = {}
+    c = contact.objects.all()[0]
+    try:
+        c = contact.objects.get(user=request.user)
+        reservations = reservation.objects.filter(contact=c)
+    except:
+        print('')
     context = {
         'reservations': reservations,
         'add_reservation': add_reservation(c, 0)
