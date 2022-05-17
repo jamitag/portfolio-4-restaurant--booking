@@ -10,6 +10,7 @@ user = {}
 Provides data and functionality for the index screen
 """
 
+
 def index(request):
     # request.user = User.objects.all()[0]
     reservations = {}
@@ -26,6 +27,7 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
+
 def login_page(request):
     context = {
         # 'sign_in': sign_in(request),
@@ -40,6 +42,7 @@ def login_page(request):
 """
 Creates a new reservation record
 """
+
 
 def add_reservation(contact, parties):
     reservation.objects.create(contact=contact, date=datetime.datetime.now(), parties=parties)
