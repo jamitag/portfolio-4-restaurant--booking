@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from .models import reservation, contact
 import datetime
+from .forms import ReservationForm
 
 user = {}
 
@@ -59,3 +60,13 @@ def sign_in(request):
 
 # def sign_in():
 #     print('')
+
+def create_reservation(request):
+    form = ReservationForm()
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    context = {'form': form}
+    return render(request, 'reservation_form.html', context)

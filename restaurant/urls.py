@@ -19,7 +19,7 @@ from django.urls import path
 import reservation.views as views
 
 urlpatterns = [
-    path('index/', views.index),
+    path('index/', views.index, name = 'index'),
     path('admin/', admin.site.urls),
     path('login/', views.login_page),
     path('login/login/', views.sign_in),
