@@ -14,6 +14,7 @@ Provides data and functionality for the index screen
 
 def index(request):
     # request.user = User.objects.all()[0]
+    r = reservation.objects.all()
     reservations = {}
     c = contact.objects.all()[0]
     try:
@@ -23,7 +24,8 @@ def index(request):
         print('')
     context = {
         'reservations': reservations,
-        'add_reservation': add_reservation(c, 0)
+        'add_reservation': add_reservation(c, 0),
+        'r': r
     }
 
     return render(request, 'index.html', context=context)
@@ -40,15 +42,6 @@ def login_page(request):
     return render(request, 'login.html', context=context)
 
 
-"""
-Creates a new reservation record
-"""
-
-
-def add_reservation(contact, parties):
-    reservation.objects.create(contact=contact, date=datetime.datetime.now(), parties=parties)
-
-
 def sign_in(request):
     credentials = request.POST
     username = credentials.get('username')
@@ -60,6 +53,11 @@ def sign_in(request):
 
 # def sign_in():
 #     print('')
+
+
+"""
+Creates a new reservation record
+"""
 
 def create_reservation(request):
     form = ReservationForm()

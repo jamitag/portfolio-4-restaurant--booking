@@ -48,7 +48,7 @@
 <h4>Reservation</h4>
 
 <button onclick="add_reservation()">
-    add
+    <a href="{%url 'reservation'%}">Add</a>
 </button>
 
 <span>
@@ -60,7 +60,7 @@
     <th>Date</th>
     <th>No. of parties</th>
 
-    {% for reservation in reservations %}
+    {% for reservation in r %}
 
     <tr>
         <td>{{reservation.date}}</td>
