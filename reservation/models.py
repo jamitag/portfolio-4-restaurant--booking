@@ -1,6 +1,8 @@
 from django.db import models
 import uuid
 from django.contrib.auth.models import User
+import datetime as dt
+
 
 """
 Returns a default user to ensure the user foreign key is never null
@@ -32,5 +34,6 @@ Model for reservations
 class reservation(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     date = models.DateTimeField()
+    # time = models.TimeField(default=dt.time(00, 00))
     parties = models.IntegerField()
     contact = models.ForeignKey(contact, on_delete=models.CASCADE)

@@ -11,24 +11,15 @@ user = {}
 Provides data and functionality for the index screen
 """
 
-
 def index(request):
     # request.user = User.objects.all()[0]
     r = reservation.objects.all()
-    reservations = {}
-    c = contact.objects.all()[0]
-    try:
-        c = contact.objects.get(user=request.user)
-        reservations = reservation.objects.filter(contact=c)
-    except:
-        print('')
     context = {
-        'reservations': reservations,
         # 'add_reservation': add_reservation(c, 0),
         'r': r
     }
 
-    return render(request, 'index.html', context=context)
+    return render(request, 'index.html', context)
 
 
 def login_page(request):
