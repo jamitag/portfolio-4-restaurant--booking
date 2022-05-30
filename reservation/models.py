@@ -21,6 +21,8 @@ class contact(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=11)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=get_user().pk)
+    def __str__(self):
+        return self.first_name
 
 
 """

@@ -24,7 +24,7 @@ def index(request):
         print('')
     context = {
         'reservations': reservations,
-        'add_reservation': add_reservation(c, 0),
+        # 'add_reservation': add_reservation(c, 0),
         'r': r
     }
 
