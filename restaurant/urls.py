@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
 import reservation.views as views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     # path('index/', views.index, name = 'index'),
@@ -26,4 +27,5 @@ urlpatterns = [
     path('login/login/', views.sign_in),
     path('accounts/', include('allauth.urls')),
     path('', include('reservation.urls')),
+    path('logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'),
 ]

@@ -38,9 +38,9 @@
                 <a class="nav-link" href="{% url 'reservation' %}">Add reservations</a>
               </li>
           </ul>
-    
+    {% comment %}
           {% if user_display %}
-    
+          
           <button type="button" class="btn btn-link px-3 me-2 ml-auto" onclick="window.location.replace('/accounts/logout')">
             {{user_display}}
           </button>
@@ -51,6 +51,21 @@
               Login
             </button>
     
+          {% endif %}
+          {% endcomment %}
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">
+                <i class="fas fa-fw fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </li>
+          {% else %}
+
+          <button type="button" class="btn btn-link px-3 me-2 ml-auto" onclick="window.location.replace('/accounts/login')">
+            Login
+          </button>
+
           {% endif %}
     
       </nav>
