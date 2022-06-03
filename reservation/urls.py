@@ -4,4 +4,5 @@ from .import views
 urlpatterns = [
     path('index/', views.index, name = 'index'),
     path('reservation/', views.create_reservation, name = 'reservation'),
+    path('update-reservation/<str:pk>/', views.updateReservation, name = 'updateReservation')
 ]

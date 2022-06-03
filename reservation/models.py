@@ -37,3 +37,10 @@ class reservation(models.Model):
     # time = models.TimeField(default=dt.time(00, 00))
     parties = models.IntegerField()
     contact = models.ForeignKey(contact, on_delete=models.CASCADE)
+
+class Reserve(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    date = models.DateField()
+    time = models.TimeField(default=dt.time(00, 00))
+    parties = models.IntegerField()
+    contact = models.ForeignKey(contact, on_delete=models.CASCADE)

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from .models import reservation, contact
+from .models import reservation, contact, Reserve
 import datetime
 from .forms import ReservationForm
 
@@ -13,7 +13,7 @@ Provides data and functionality for the index screen
 
 def index(request):
     # request.user = User.objects.all()[0]
-    r = reservation.objects.all()
+    r = Reserve.objects.all()
     context = {
         # 'add_reservation': add_reservation(c, 0),
         'r': r
@@ -42,9 +42,6 @@ def sign_in(request):
         login(request, user)
     return render(request, '')
 
-# def sign_in():
-#     print('')
-
 
 """
 Creates a new reservation record
@@ -59,3 +56,19 @@ def create_reservation(request):
             return redirect('index')
     context = {'form': form}
     return render(request, 'reservation_form.html', context)
+
+
+"""
+Update reservation record
+"""
+
+def updateReservation(request, pk):
+    reservation = Reserve.objects.get(id = pk)
+    form = ReservationForm(instance= reservation)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance = reservation)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    context = {'form':form}
+    return render(request, 'update_reservation_form.html', context)
