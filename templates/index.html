@@ -43,7 +43,8 @@
         <td>{{reservation.time}}</td>
         <td>{{reservation.parties}}</td>
         <td> <a href="{% url 'updateReservation' reservation.id %}">Update</a></td>
-        <!-- <td> <a href="{% url ''%}">Delete</a></td> -->
+        <td> <a href="{% url 'deleteReservation' reservation.id %}">Delete</a></td>
+
     </tr>
   
   </tbody>

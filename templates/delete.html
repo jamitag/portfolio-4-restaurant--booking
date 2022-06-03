@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+
+        </div>
+    <div class="col-6">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p>Are you sure, you want to delete "{{object}}"</p>
+            <a href="{% url 'index' %}" class="btn btn-dark">Go back</a>
+            <input type="submit" class="btn btn-info" value="Confirm">
+        </form>
+    </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

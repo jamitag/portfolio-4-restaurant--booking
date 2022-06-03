@@ -72,3 +72,16 @@ def updateReservation(request, pk):
             return redirect('index')
     context = {'form':form}
     return render(request, 'update_reservation_form.html', context)
+
+
+"""
+Delete reservation record
+"""
+
+def deleteReservation(request, pk):
+    reservation = Reserve.objects.get(id=pk)
+    if request.method == 'POST':
+        reservation.delete()
+        return redirect('index')
+    context = {'object': reservation}
+    return render(request, 'delete.html', context)
