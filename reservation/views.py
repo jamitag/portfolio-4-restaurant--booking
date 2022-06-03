@@ -53,7 +53,7 @@ def create_reservation(request):
         form = ReservationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('Reservations')
     context = {'form': form}
     return render(request, 'reservation_form.html', context)
 
@@ -69,7 +69,7 @@ def updateReservation(request, pk):
         form = ReservationForm(request.POST, instance = reservation)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('Reservations')
     context = {'form':form}
     return render(request, 'update_reservation_form.html', context)
 
@@ -82,6 +82,11 @@ def deleteReservation(request, pk):
     reservation = Reserve.objects.get(id=pk)
     if request.method == 'POST':
         reservation.delete()
-        return redirect('index')
+        return redirect('Reservations')
     context = {'object': reservation}
     return render(request, 'delete.html', context)
+
+def Reservations(request):
+    reservations = Reserve.objects.all()
+    context = {'reservations': reservations}
+    return render(request, 'reservations.html', context)
