@@ -6,61 +6,10 @@
 
 {% user_display user as user_display %}
 
-<!-- <div>
-  <img src="../static/media/restaurant-background.png"  class= "img-fluid w-100 .bg-image" alt="" style="background-size: cover; height: 100%; filter: grayscale(90%);">
-</div> -->
 
-<div id="hero-img">
-
-</div>
 
 <div class="container">
-
-<h4 class="my-4">Reservation</h4>
-
-
-<a href="{%url 'reservation'%}" class="btn btn-primary my-4">Add</a>
-
-
-<span>
-  {{user_display}}
-</span>
-  
-<table class="table table-dark">
-
-
-  <thead>
-    <tr>
-    <th>Date</th>
-    <th>Time</th>
-    <th>No. of parties</th>
-    <th></th>
-    </tr>
-  </thead>
-
-    {% for reservation in r %}
-
-  <tbody>
-
-    <tr>
-        <td>{{reservation.date}}</td>
-        <td>{{reservation.time}}</td>
-        <td>{{reservation.parties}}</td>
-        <td> <a href="{% url 'updateReservation' reservation.id %}">Update</a></td>
-        <td> <a href="{% url 'deleteReservation' reservation.id %}">Delete</a></td>
-
-    </tr>
-  
-  </tbody>
-
-    {% endfor %}
-
-</table>
 
 </div>
 
 {% endblock content %}
-
-<div>
-    
-</div>
