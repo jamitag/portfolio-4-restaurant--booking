@@ -1,10 +1,11 @@
 #hero-img {
-    background: url('../media/restaurant-background.png') no-repeat center center;
-    background-repeat:no-repeat;
-    background-position:center;
-    width: 100%;
-    height: 500px;
+    background: url('../static/media/restaurant-background.png');
     background-size: cover;
+    background-position:center;
+    filter: grayscale(90%);
+    /* width: 100%;
+    height: 500px;
+    background-size: cover; */
 }
 
 .logout {

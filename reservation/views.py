@@ -90,3 +90,11 @@ def Reservations(request):
     reservations = Reserve.objects.all()
     context = {'reservations': reservations}
     return render(request, 'reservations.html', context)
+
+
+def aboutUs(request):
+    return render(request, 'about_us.html')
+
+
+def menu(request):
+    return render(request, 'menu.html')
