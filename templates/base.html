@@ -35,7 +35,7 @@
               {% if user.is_authenticated %}
                 <a class="nav-link" href="{% url 'Reservations' %}">Reservations</a>
               {% else %}
-                <a class="nav-link" href="accounts/login">Reservations</a>
+                <a class="nav-link" href="/accounts/login">Reservations</a>
               {% endif %}
             </li>
           </ul>

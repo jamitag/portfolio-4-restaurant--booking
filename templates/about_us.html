@@ -5,22 +5,30 @@
 {% load account %}
 
 {% user_display user as user_display %}
-
-<div class="p-3 text-center" style="width: 300px;">
-    <img src="/static/media/familyphot.png" alt="Geraldo family portrait">
+<div class="row">
+    <div class="col-md-4"></div>
+<div class="col-md-4">
+    <img src="/static/media/familyphot.png" alt="Geraldo family portrait" style="width: 100%;">
+</div>
+<div class="col-md-4"></div>
 </div>
 
-<div class="margin-md p-4 mx-auto" style="width: 600px;">
+<div class="row">
+    <div class="col-md-4"></div>
+<div class="col-md-4">
     <p style="font-weight: bold; font-style: italic; color:hsl(358, 96%, 49%)">Situated just a 5 minute walk from the Edinburgh Castle, within the citys historic Old Town.
        This family-run Italian Restaurant has served the Locals and tourists alike for many years.
        The Geraldos pride themselves on friendly service, good food at reasonable prices.</p>
 </div>
+<div class="col-md-4"></div>
+</div>
 
 <div class="text-center">
-    <button type="button" class="btn btn-primary m-5 mx-auto" onclick="{% url 'Reservations' %}">
-    <!-- <a href="{% url 'Reservations' %}">Come Join Us</a> -->
-    Come Join Us
-    </button>
+    {% if user.is_authenticated %}
+<a class="btn btn-primary m-5 mx-auto" href= "{% url 'Reservations' %}">Come Join Us</a>
+{% else %}
+<a class="btn btn-primary m-5 mx-auto" href= "/accounts/login">Come Join Us</a>
+{% endif %}
 </div>
 
 {% endblock content %}
