@@ -87,7 +87,10 @@ def deleteReservation(request, pk):
     return render(request, 'delete.html', context)
 
 def Reservations(request):
-    reservations = Reserve.objects.all()
+    reservations = {}
+    c = contact.objects.get(user=request.user)
+    reservations = Reserve.objects.filter(contact=c)
+    # reservations = Reserve.objects.all()
     context = {'reservations': reservations}
     return render(request, 'reservations.html', context)
 
