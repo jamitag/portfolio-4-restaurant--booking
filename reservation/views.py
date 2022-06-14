@@ -50,7 +50,9 @@ Creates a new reservation record
 def create_reservation(request):
     form = ReservationForm()
     if request.method == 'POST':
-        form = ReservationForm(request.POST)
+        c = contact.objects.get(user=request.user)
+        r = Reserve(c.id, form.Meta.model.id, form.Meta.model.date, form.Meta.model.parties, form.Meta.model.time)
+        form = ReservationForm(request.POST, instance=r)
         if form.is_valid():
             form.save()
             return redirect('Reservations')
@@ -88,10 +90,16 @@ def deleteReservation(request, pk):
 
 def Reservations(request):
     reservations = {}
-    c = contact.objects.get(user=request.user)
-    reservations = Reserve.objects.filter(contact=c)
-    # reservations = Reserve.objects.all()
-    context = {'reservations': reservations}
+    context = {}
+    if request.user:
+        c = contact.objects.get(user=request.user)
+    
+        if c.DoesNotExist():
+            print('')
+        else:
+            reservations = Reserve.objects.filter(contact=c)
+            context = {'reservations': reservations}
+
     return render(request, 'reservations.html', context)
 
 

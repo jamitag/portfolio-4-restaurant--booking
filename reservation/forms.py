@@ -11,7 +11,7 @@ HOUR_CHOICES = [(dt.time(hour=x), '{:02d}:00'.format(x)) for x in range(0, 24)]
 class ReservationForm(ModelForm):
     class Meta:
         model = Reserve
-        fields = ['date', 'time', 'parties', 'contact']
+        fields = ['date', 'time', 'parties']
         widgets = {
             'time': forms.Select(choices=HOUR_CHOICES),
             'date': forms.DateInput(format=('%d-%m-%Y'), 
