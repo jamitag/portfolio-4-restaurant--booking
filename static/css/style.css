@@ -20,3 +20,9 @@
     font-size: 800%;
     padding-top: 5%;
 }
+
+.review {
+    width: 250px;
+    height: auto;
+    float: right;
+}
