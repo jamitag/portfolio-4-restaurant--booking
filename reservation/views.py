@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from .models import reservation, contact, Reserve
+from .models import Reserve
 import datetime
 from .forms import ReservationForm
+import uuid
 
 user = {}
 
@@ -50,9 +51,7 @@ Creates a new reservation record
 def create_reservation(request):
     form = ReservationForm()
     if request.method == 'POST':
-        c = contact.objects.get(user=request.user)
-        r = Reserve(c.id, form.Meta.model.id, form.Meta.model.date, form.Meta.model.parties, form.Meta.model.time)
-        form = ReservationForm(request.POST, instance=r)
+        form = ReservationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('Reservations')
@@ -92,13 +91,8 @@ def Reservations(request):
     reservations = {}
     context = {}
     if request.user:
-        c = contact.objects.get(user=request.user)
-    
-        if c.DoesNotExist():
-            print('')
-        else:
-            reservations = Reserve.objects.filter(contact=c)
-            context = {'reservations': reservations}
+        reservations = Reserve.objects.filter(contact=request.user.username)
+        context = {'reservations': reservations}
 
     return render(request, 'reservations.html', context)
 

@@ -1,6 +1,4 @@
 from django.contrib import admin
-from .models import reservation, contact
+from .models import Reserve
 
-admin.site.register(reservation)
-
-admin.site.register(contact)
+admin.site.register(Reserve)
