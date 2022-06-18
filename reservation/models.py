@@ -38,3 +38,8 @@ class Reserve(models.Model):
     time = models.TimeField(default=dt.time(00, 00))
     parties = models.IntegerField(validators=[MaxValueValidator(50)])
     contact = models.TextField(default='')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+
+    def __str__(self):
+        return str(self.author) + ": " + str(self.date)

@@ -53,6 +53,7 @@ def create_reservation(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
+            form.instance.author = request.user
             form.save()
             return redirect('Reservations')
     context = {'form': form}
@@ -91,7 +92,7 @@ def Reservations(request):
     reservations = {}
     context = {}
     if request.user:
-        reservations = Reserve.objects.filter(contact=request.user.username)
+        reservations = Reserve.objects.filter(author=request.user)
         context = {'reservations': reservations}
 
     return render(request, 'reservations.html', context)
