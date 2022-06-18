@@ -35,7 +35,8 @@ Model for reservations
 class Reserve(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     date = models.DateField()
-    time = models.TimeField(default=dt.time(00, 00))
+    # time = models.TimeField(default=dt.time(00, 00))
+    time = models.CharField(max_length=250, blank=True, null=True)
     parties = models.IntegerField(validators=[MaxValueValidator(50)])
     contact = models.TextField(default='')
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
