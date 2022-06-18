@@ -41,12 +41,12 @@
             </li>
           </ul>
           {% if user.is_authenticated %}
-          <a class="btn btn-link px-3 me-2 ml-auto" href="{% url 'logout' %}">
+          <a class="btn btn-dark text-light px-3 me-2 ml-auto" href="{% url 'logout' %}">
             Logout
           </a>
           {% else %}
 
-          <button type="button" class="btn btn-link px-3 me-2 ml-auto" onclick="window.location.replace('/accounts/login')">
+          <button type="button" class="btn btn-dark text-light px-3 me-2 ml-auto" onclick="window.location.replace('/accounts/login')">
             Login
           </button>
 
