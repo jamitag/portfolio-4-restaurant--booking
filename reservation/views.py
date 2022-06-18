@@ -12,11 +12,10 @@ user = {}
 Provides data and functionality for the index screen
 """
 
+
 def index(request):
-    # request.user = User.objects.all()[0]
     r = Reserve.objects.all()
     context = {
-        # 'add_reservation': add_reservation(c, 0),
         'r': r
     }
 
@@ -25,7 +24,6 @@ def index(request):
 
 def login_page(request):
     context = {
-        # 'sign_in': sign_in(request),
         'user': user
     }
 
@@ -48,6 +46,7 @@ def sign_in(request):
 Creates a new reservation record
 """
 
+
 def create_reservation(request):
     form = ReservationForm()
     if request.method == 'POST':
@@ -64,21 +63,23 @@ def create_reservation(request):
 Update reservation record
 """
 
+
 def updateReservation(request, pk):
-    reservation = Reserve.objects.get(id = pk)
-    form = ReservationForm(instance= reservation)
+    reservation = Reserve.objects.get(id=pk)
+    form = ReservationForm(instance=reservation)
     if request.method == 'POST':
-        form = ReservationForm(request.POST, instance = reservation)
+        form = ReservationForm(request.POST, instance=reservation)
         if form.is_valid():
             form.save()
             return redirect('Reservations')
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'update_reservation_form.html', context)
 
 
 """
 Delete reservation record
 """
+
 
 def deleteReservation(request, pk):
     reservation = Reserve.objects.get(id=pk)
@@ -87,6 +88,7 @@ def deleteReservation(request, pk):
         return redirect('Reservations')
     context = {'object': reservation}
     return render(request, 'delete.html', context)
+
 
 def Reservations(request):
     reservations = {}
