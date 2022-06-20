@@ -25,7 +25,6 @@ class Reserve(models.Model):
     time = models.TimeField(default=dt.time(00, 00))
     # time = models.CharField(max_length=250, blank=True, null=True)
     parties = models.IntegerField(validators=[MaxValueValidator(50)])
-    contact = models.TextField(default='')
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
