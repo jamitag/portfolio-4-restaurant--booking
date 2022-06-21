@@ -10,9 +10,16 @@ class Menu(models.Model):
     name = models.CharField(max_length=250)
     image = CloudinaryField("Image", resource_type="auto",)
 
+
 class AboutUs(models.Model):
     name = models.CharField(max_length=250, null=True, blank=True)
     image = CloudinaryField("Image", resource_type="auto",)
+
+
+class Index(models.Model):
+    name = models.CharField(max_length=250, null=True, blank=True)
+    image = CloudinaryField("Index", resource_type="auto",)
+
 
 class bgImage(models.Model):
     image = CloudinaryField("Image", resource_type="auto")

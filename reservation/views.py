@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from .models import Reserve, Menu, AboutUs
+from .models import Reserve, Menu, AboutUs, Index
 import datetime
 from .forms import ReservationForm
 import uuid
@@ -19,7 +19,11 @@ def index(request):
         'r': r
     }
 
-    return render(request, 'index.html', context)
+    index = Index.objects.all()
+
+    return render(request, 'index.html', context = {
+        'index': index
+        })
 
 
 def login_page(request):

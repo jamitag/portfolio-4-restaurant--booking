@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'cloudinary',
     'reservation',
     'bootstrap5',
-    'bootstrap4',
 ]
 
 SITE_ID = 1
