@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from .models import Reserve, Menu, AboutUs, Index
-import datetime
 from .forms import ReservationForm
-import uuid
 
 user = {}
 
@@ -14,16 +11,9 @@ Provides data and functionality for the index screen
 
 
 def index(request):
-    r = Reserve.objects.all()
-    context = {
-        'r': r
-    }
-
     index = Index.objects.all()
-
-    return render(request, 'index.html', context = {
-        'index': index
-        })
+    context = {'index': index}
+    return render(request, 'index.html', context)
 
 
 def login_page(request):
@@ -58,7 +48,7 @@ def create_reservation(request):
         if form.is_valid():
             form.instance.author = request.user
             form.save()
-            return redirect('Reservations')
+            return redirect('ReservationsSuccess', pk='y')
     context = {'form': form}
     return render(request, 'reservation_form.html', context)
 
@@ -94,12 +84,18 @@ def deleteReservation(request, pk):
     return render(request, 'delete.html', context)
 
 
-def Reservations(request):
+"""
+List of reservations for a user
+"""
+
+def Reservations(request, pk=''):
     reservations = {}
     context = {}
     if request.user:
         reservations = Reserve.objects.filter(author=request.user)
-        context = {'reservations': reservations}
+        context = {'reservations': reservations, 'success': pk}
+
+    pk = ''
 
     return render(request, 'reservations.html', context)
 

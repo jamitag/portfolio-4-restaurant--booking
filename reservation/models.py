@@ -23,7 +23,7 @@ class Index(models.Model):
 
 class bgImage(models.Model):
     image = CloudinaryField("Image", resource_type="auto")
-    
+
 
 """
 Returns a default user to ensure the user foreign key is never null
@@ -47,4 +47,8 @@ class Reserve(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
+        """
+        Formats reservation within admin panal to make more user friendly
+        """
+
         return str(self.author) + ": " + str(self.date)

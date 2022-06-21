@@ -1,6 +1,6 @@
 #hero-img {
-    background: url('{{bg_images.image.url}}');
-    /* background: url('../media/restaurant-background1.png'); */
+    /* background: url('{{bg_images.image.url}}'); */
+    background: url('../media/restaurant-background1.png');
     background-size: cover;
     background-position: center;
     width: 100%;

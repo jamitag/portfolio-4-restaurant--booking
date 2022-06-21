@@ -33,6 +33,28 @@
 
     </table>
 
+    {% if success == 'y' %}
+
+    <div class="modal fade" id="success-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-light">
+                    <h5>Success</h5>
+
+                </div>
+                <div class="modal-body">
+                    <span>test</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    {% endif %}
+
+
 </div>
 
 {% endblock content %}
