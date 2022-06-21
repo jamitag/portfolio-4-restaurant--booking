@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from .models import Reserve
+from .models import Reserve, Menu, AboutUs
 import datetime
 from .forms import ReservationForm
 import uuid
@@ -101,8 +101,10 @@ def Reservations(request):
 
 
 def aboutUs(request):
-    return render(request, 'about_us.html')
+    about = AboutUs.objects.all()
+    return render(request, 'about_us.html', {'about': about})
 
 
 def menu(request):
-    return render(request, 'menu.html')
+    m = Menu.objects.all()
+    return render(request, 'menu.html', {'m': m})

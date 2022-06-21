@@ -9,9 +9,11 @@
 {% user_display user as user_display %}
 <div class="row">
     <div class="col-md-4 col-sm-4 col-4"></div>
+    {% for a in about %}
     <div class="col-md-4 col-sm-4 col-4 m-3">
-        <img src="/static/media/familyphot2.png" alt="Geraldo family portrait" style="width: 100%;">
+        <img src="{{a.image.url}}" alt="Geraldo family portrait" style="width: 100%;">
     </div>
+    {% endfor %}
     <div class="col-md-4 col-sm-4 col-4"></div>
 </div>
 
