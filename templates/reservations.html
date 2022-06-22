@@ -35,15 +35,17 @@
 
     {% if success == 'y' %}
 
+    <!-- modal popup -->
+
     <div class="modal fade" id="success-modal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-light">
-                    <h5>Success</h5>
+                <div class="modal-header bg-secondary text-light">
+                    <h5 id="modal-bg">Thank you!</h5>
 
                 </div>
                 <div class="modal-body">
-                    <span>test</span>
+                    <span>We will be in touch to confirm your booking</span>
 
                 </div>
 
@@ -53,6 +55,8 @@
 
     </div>
     {% endif %}
+
+    <!-- end modal -->
 
 
 </div>

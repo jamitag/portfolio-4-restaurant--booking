@@ -14,7 +14,7 @@ class ReservationForm(ModelForm):
         fields = ['date', 'time', 'parties']
         widgets = {
             'time': forms.Select(choices=HOUR_CHOICES),
-            'date': forms.DateInput(format=('%d-%m-%Y'), 
+            'date': forms.DateInput(format=('%d-%m-%Y'),
                                     attrs={'class': 'form-control',
                                     'type': 'date',
                                             'placeholder': 'Select a date'}),
