@@ -22,15 +22,11 @@
 </div>
 
 <div class="row p-5">
-    <div class="col-md-4 hp-images">
-        <img src="/static/media/pizza.png" class="hp-images" alt="slice of pizza">
+    {% for home in index %}
+    <div class="col-md-4 hp-images m-3">
+        <img src="{{home.image.url}}" class="hp-images" alt="slice of pizza">
     </div>
-    <div class="col-md-4 hp-images">
-        <img src="/static/media/pasta.png" class="hp-images" alt="bowl of pasta">
-    </div>
-    <div class="col-md-4 hp-images">
-        <img src="/static/media/brushetta.png" class="hp-images" alt="plate of bruschetta">
-    </div>
+    {% endfor %}
 </div>
 
 {% endblock content %}

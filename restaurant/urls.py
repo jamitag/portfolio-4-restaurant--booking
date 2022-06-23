@@ -18,14 +18,19 @@ from django.conf.urls import include
 from django.urls import path
 import reservation.views as views
 from django.contrib.auth import views as auth_views
+# from django.conf import settings
+# from django.conf.urls.static import static
 
 urlpatterns = [
-    # path('index/', views.index, name = 'index'),
-    # path('index/', views.index, name = 'index'),
     path('admin/', admin.site.urls),
     path('login/', views.login_page),
     path('login/login/', views.sign_in),
     path('accounts/', include('allauth.urls')),
     path('', include('reservation.urls')),
-    path('logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='index'),
+         name='logout'),
 ]
+
+# if settings.DEBUG == True or settings.DEBUG == False:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

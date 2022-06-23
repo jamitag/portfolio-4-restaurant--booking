@@ -14,6 +14,7 @@ class Menu(models.Model):
 class AboutUs(models.Model):
     name = models.CharField(max_length=250, null=True, blank=True)
     image = CloudinaryField("Image", resource_type="auto",)
+    desc  = models.TextField(blank=True, null=True)
 
 
 class Index(models.Model):

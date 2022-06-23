@@ -102,7 +102,7 @@ def Reservations(request, pk=''):
 
 
 def aboutUs(request):
-    about = AboutUs.objects.all()
+    about = AboutUs.objects.get()
     return render(request, 'about_us.html', {'about': about})
 
 
