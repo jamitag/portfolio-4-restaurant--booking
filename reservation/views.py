@@ -14,8 +14,9 @@ Provides data and functionality for the index screen
 def index(request):
     index = Index.objects.all()
     img = RatingImage.objects.get()
-    context = {'index': index, 'img': img }
+    context = {'index': index, 'img': img}
     return render(request, 'index.html', context)
+
 
 def base(request):
     bg_image = bgImage.objects.get()

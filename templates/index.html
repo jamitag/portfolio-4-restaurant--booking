@@ -9,14 +9,15 @@
 {% user_display user as user_display %}
 
 <!DOCTYPE html>
-<div class="row title-container" style="height: 300px;">
+<div class="row title-container" id="title-container" style="height: 300px;">
     <div class="col-md-6">
-        <h1 class="title ml-5" style="font-family: 'Pinyon Script', cursive;
-        color: black;
-        font-size: 800%;
-        padding-top: 5%;">
+        <h1 class="title" id="title" style="font-family: 'Pinyon Script', cursive;">
             Geraldos
         </h1>
+
+        <!-- font-size: 800%;
+        padding-top: 5%;" -->
+
     </div>
     <div class="col-md-6">
         <p class="m-5">
@@ -30,8 +31,9 @@
 <div class="row p-5">
     {% for home in index %}
     <div class="col-md-4 hp-images">
-        <img src="{{home.image.url}}"  alt="slice of pizza" style="width: 400px;
-        height: auto;">
+        <img src="{{home.image.url}}" class="img-fluid" alt="italian food">
+        <!-- style="width: 400px;
+        height: auto;" -->
     </div>
     {% endfor %}
 </div>

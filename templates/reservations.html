@@ -4,29 +4,27 @@
 
 {% block content %}
 
-<div class="mx-5">
+<div class="">
     <a class="btn btn-primary m-5 mx-auto" href= "/reservation">Add</a>
 
     <table class="table table-striped" >
         <thead class="table-dark">
            <tr>
-               <th scope="col">ID</th>
                <th scope="col">Date</th>
                <th scope="col">Time</th>
                <th scope="col">Parties</th>
-               <th></th>
                <th></th>
            </tr>
         </thead>
         <tbody class="bg-light">
             {% for reservation in reservations %}
             <tr>
-                <td>{{reservation.id}}</td>
                 <td>{{reservation.date}}</td>
                 <td>{{reservation.time}}</td>
                 <td>{{reservation.parties}}</td>
-                <td> <a href="{% url 'updateReservation' reservation.id %}" class="btn btn-success">Update</a></td>
-                <td> <a href="{% url 'deleteReservation' reservation.id %}" class="btn btn-danger">Delete</a></td>
+                <td> <a href="{% url 'updateReservation' reservation.id %}" class="btn btn-success">Update</a>
+                     <a href="{% url 'deleteReservation' reservation.id %}" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
