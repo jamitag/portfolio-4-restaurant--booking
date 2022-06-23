@@ -4,6 +4,7 @@ from .import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('menu/', views.menu, name='menu'),
+    path('base/', views.base, name='base'),
     path('about_us/', views.aboutUs, name='aboutUs'),
     path('reservation/', views.create_reservation, name='reservation'),
     path('update-reservation/<str:pk>/', views.updateReservation,

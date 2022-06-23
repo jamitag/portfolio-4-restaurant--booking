@@ -23,7 +23,8 @@
 
   {% include 'partials/navbar.html'%}
 
-    <main class="flex-shrink-0 main-bg" id="hero-img">
+    <main class="flex-shrink-0 main-bg" id="hero-img" style="background: url('{{bg_image.image.url}}');">
+        <img src="{{bg_image.image.url}}" alt="">
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}

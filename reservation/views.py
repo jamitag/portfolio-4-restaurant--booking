@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .models import Reserve, Menu, AboutUs, Index
+from .models import Reserve, Menu, AboutUs, Index, bgImage, RatingImage
 from .forms import ReservationForm
+
 
 user = {}
 
@@ -12,8 +13,14 @@ Provides data and functionality for the index screen
 
 def index(request):
     index = Index.objects.all()
-    context = {'index': index}
+    img = RatingImage.objects.get()
+    context = {'index': index, 'img': img }
     return render(request, 'index.html', context)
+
+def base(request):
+    bg_image = bgImage.objects.get()
+    context = {'bg_image': bg_image, }
+    return render(request, 'base.html', context)
 
 
 def login_page(request):
