@@ -4,12 +4,12 @@
 
 
 ## Welcome - [Geraldos](https://github.com/jamitag/portfolio-4-restaurant--booking)
-The home of authentic Italian cuisine. This site is designed for users to make reservations for the restaurant. Users will sign up and create an account allowing them to also update or delete any existing reservations.
+The home of authentic Italian cuisine. This site is designed for users to make reservation enquiries for the restaurant. Users will sign up and create an account allowing them to also update or delete any existing reservations.
 
 
 ## How it works
 
-User is greeted with the homepage of the restaurant site. There is five clickable links; Home/About us/Menu/Reservation/Login. If they wish to make a reservation in the restaurant, they should click the ‘Reservation’ link in the nav bar. This will direct them to a Sign In page where they will be prompted to sign in or sign up. Once account is created they will be able to make a reservation for the restaurant and edit it accordingly. Whenever they login in future all existing bookings can be viewed and edited.
+User is greeted with the homepage of the restaurant site. There is five clickable links; Home/About us/Menu/Reservation/Login. If they wish to make a reservation in the restaurant, they should click the ‘Reservation’ link in the nav bar. This will direct them to a Sign In page where they will be prompted to sign in or sign up. Once account is created they will be able to enquire about a reservation for the restaurant and edit it accordingly. Whenever they login in future all existing bookings can be viewed and edited.
 
 ## Features
 
@@ -159,17 +159,16 @@ Once a user has successfully enquired about their booking, they will recieve ons
 
 #### Python
 
-I fixed the basic errors from the Problems tab of the terminal. Additionally, all .py files were ran through <a href="http://pep8online.com">PEP8 linter</a>. Many common errors were encountered such as ‘Line too lon’, ‘Trailing white space’, ‘Black lines’ etc. Most where tidied up without any concerns - see issues below for more info.
+I fixed the basic errors from the Problems tab in the terminal using flake8. Additionally, all .py files were ran through <a href="http://pep8online.com">PEP8 linter</a>. Common errors encountered such as ‘Line too long’, ‘Trailing white space’, ‘Black lines’ etc where found. Most where tidied up without any concerns - see issues below for outstanding issue.
 
 #### HTML
 
-I had to open HTML page in the browser and copy the rendered HTML code into the validator in order to avoid errors caused by the Django expressions.
+I had to open HTML page in the browser and copy the rendered HTML code into the validator in order to avoid errors caused by the Django expressions when simply pasting my template code into the validator.
 All HTML code was run through [W3C HTML validation service](https://validator.w3.org/nu/). All errors found where cleared without any concerns.
 
 #### CSS
 
-My style.css file was tested using the [W3C CSS validation service](https://jigsaw.w3.org/css-validator/) and 
-showed no errors.
+My CSS code contained within base.html was ran through [W3C CSS validation service](https://jigsaw.w3.org/css-validator/) and showed no errors.
 
 #### JavaScript
 
@@ -208,6 +207,10 @@ Solution - I discovered that django offered separate date and time fields.
 Error - I was unsuccsessfully trying to link the contact model to the reservation and user models in order to link reservations to a user but this resulted in all reservations displaying for all users.
 
 Solution - Updating the user field to a 'foreign key' instead of a 'text field' provided a relationship between the reserve modal and the user modal, linking each reservation the correct user.
+
+Error - Within the reservation form, I could not set my time field to 30 minute intervals - only hourly.
+
+Solution - No solution could be found. the reservation form continues to only offer on the hour enquiries during opening times.
 
 ## Technologies
 
